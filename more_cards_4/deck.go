@@ -52,10 +52,12 @@ func newDeck() deck {
 	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clovers"}
 	cardValues := []string{"Ace", "Two", "Three", "Four"}
 
-	// when you have a variable that you know
-	// is being returned but you don't want to
-	// use, you can use "_" and the go compiler
-	// will know to ignore them.
+	/*
+			when you have a variable that you know
+		 	is being returned but you don't want to
+			use, you can use "_" and the go compiler
+			will know to ignore them.
+	*/
 	for _, suit := range cardSuits {
 		for _, value := range cardValues {
 			cards = append(cards, value+" of "+suit)
@@ -65,8 +67,15 @@ func newDeck() deck {
 	return cards
 }
 
+// prints the contents of a deck
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
+}
+
+// this function will split the deck by
+// a given hand size
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }
