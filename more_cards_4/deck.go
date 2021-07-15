@@ -42,6 +42,29 @@ type deck []string
 	one letter or a shortened abbreviation of
 	the type.
 */
+
+// creates and returns a new deck
+// doesn't need a receiver
+// like a constructor, but isn't a constructor
+func newDeck() deck {
+	cards := deck{}
+
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clovers"}
+	cardValues := []string{"Ace", "Two", "Three", "Four"}
+
+	// when you have a variable that you know
+	// is being returned but you don't want to
+	// use, you can use "_" and the go compiler
+	// will know to ignore them.
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, value+" of "+suit)
+		}
+	}
+
+	return cards
+}
+
 func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)

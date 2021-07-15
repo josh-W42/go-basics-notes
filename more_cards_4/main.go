@@ -16,6 +16,6 @@
 package main
 
 func main() {
-	cards := deck{"Kind of Hearts"}
+	cards := newDeck()
 	cards.print()
 }
