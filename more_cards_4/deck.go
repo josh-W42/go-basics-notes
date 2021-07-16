@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 /*
 	create a new type of 'deck'
@@ -88,3 +91,7 @@ func deal(d deck, handSize int) (deck, deck) {
 // these slices can be segmented into subsets
 // using syntax similar to what you'd find in
 // python for lists
+
+func (d deck) toString() string {
+	return strings.Join([]string(d), ",")
+}
