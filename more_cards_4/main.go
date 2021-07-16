@@ -10,7 +10,7 @@
 
 	Instead, Go focuses instead on composition.
 
-	Head over
+	Head over to deck.go for more information
 */
 
 package main

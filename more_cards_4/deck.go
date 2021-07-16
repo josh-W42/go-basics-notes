@@ -74,8 +74,17 @@ func (d deck) print() {
 	}
 }
 
+// the bottem return type syntax is how
+// you'd configure the function to return
+// values
+
 // this function will split the deck by
 // a given hand size
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
 }
+
+// an important thing to not here is that
+// these slices can be segmented into subsets
+// using syntax similar to what you'd find in
+// python for lists
