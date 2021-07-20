@@ -121,10 +121,13 @@ func newDeckFromFile(filename string) deck {
 		fmt.Println("Error: ", err)
 
 		/*
-			use the os package we use the os package
+			Using the os package; we use the os package
 			because it should produce the intended result
 			for a wide variety of operating systems.
 		*/
 		os.Exit(1)
 	}
+
+	s := strings.Split(string(bs), ",")
+	return deck(s)
 }

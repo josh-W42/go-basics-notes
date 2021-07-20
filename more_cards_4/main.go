@@ -16,7 +16,7 @@
 package main
 
 func main() {
-	cards := newDeck()
+	// cards := newDeck()
 	// cards.print()
 	// hand, remainingCards := deal(cards, 5)
 
@@ -25,5 +25,9 @@ func main() {
 
 	// greeting := "Hi there"
 	// fmt.Println(cards.toString())
-	cards.saveToFile("my_cards")
+	// cards.saveToFile("my_cards.txt")
+
+	// cards := newDeckFromFile("my_cards")
+	cards := newDeckFromFile("my_card")
+	cards.print()
 }
