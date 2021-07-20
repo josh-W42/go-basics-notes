@@ -1,3 +1,5 @@
+package main
+
 /*
 	At this point we're going
 	to try and create an application
@@ -12,8 +14,6 @@
 
 	Head over to deck.go for more information
 */
-
-package main
 
 func main() {
 	// cards := newDeck()
