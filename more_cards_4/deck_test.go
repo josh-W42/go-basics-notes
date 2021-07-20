@@ -17,7 +17,10 @@ package main
 	convention used bellow.
 */
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestNewDeck(t *testing.T) {
 	d := newDeck()
@@ -33,5 +36,35 @@ func TestNewDeck(t *testing.T) {
 	if d[len(d)-1] != "Four of Clubs" {
 		t.Errorf("Expected last card to be Four of Clubs, but got %v", d[len(d)-1])
 	}
+
+}
+
+/*
+	A note about testing in go:
+		If your tests involve exiting a program, note
+		that there will be no automatic garbage collection
+		for the creation of files.
+
+*/
+func TestSaveToDeckAndNewDeckFromFile(t *testing.T) {
+	// delete any files in current directory
+	// with the name "_decktesting"
+	os.Remove("_deckTesting")
+
+	// create a deck
+	d := newDeck()
+
+	// save it to a file
+	d.saveToFile("_deckTesting")
+
+	// load the file in
+	loadedDeck := newDeckFromFile("_deckTesting")
+
+	// run tests on the file
+	if len(loadedDeck) != 16 {
+		t.Errorf("Expected 16 cards in deck, but got %v", len(loadedDeck))
+	}
+
+	os.Remove("_deckTesting")
 
 }

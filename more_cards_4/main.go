@@ -25,7 +25,7 @@ func main() {
 
 	// greeting := "Hi there"
 	// fmt.Println(cards.toString())
-	// cards.saveToFile("my_cards.txt")
+	// cards.saveToFile("my_cards")
 
 	// cards := newDeckFromFile("my_cards")
 	// cards := newDeckFromFile("my_card")
