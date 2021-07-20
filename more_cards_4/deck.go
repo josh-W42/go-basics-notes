@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -100,4 +101,30 @@ func (d deck) toString() string {
 func (d deck) saveToFile(fileName string) error {
 	d.toString()
 	return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+}
+
+func newDeckFromFile(filename string) deck {
+	bs, err := ioutil.ReadFile(filename)
+
+	if err != nil {
+		/*
+				error handling in go can be tricky,
+				we have several options ready if
+			 	things go wrong
+
+				 with that said we could do two things
+				 1: we log the error and return a call to newDeck.
+				 2: we log the error and exit the program.
+
+				 For this program, we'll be taking option 2.
+		*/
+		fmt.Println("Error: ", err)
+
+		/*
+			use the os package we use the os package
+			because it should produce the intended result
+			for a wide variety of operating systems.
+		*/
+		os.Exit(1)
+	}
 }
